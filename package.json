@@ -1,0 +1,9 @@
+{
+  "name": "patient-record",
+  "version": "1.0.0",
+  "description": "database for doctors to save patient record",
+  "main": "index.js",
+  "repository": "git@github.com:rajeevhansda/patient-record.git",
+  "author": "Rajeev Hansda <rajeev@teslon.io>",
+  "license": "MIT"
+}
