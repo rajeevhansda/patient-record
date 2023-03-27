@@ -22,10 +22,11 @@ router.post('/register', async (req, res) => {
 })
 
 //Login User
-router.get('/login', async (req, res) => {
+router.post('/login', async (req, res) => {
 
     const name = req.body.name
     const password = req.body.password
+    console.log(req.body);
     try {
         const result = await loginUser(name, password);
         res.status(200).json(result)
