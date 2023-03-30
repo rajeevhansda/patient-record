@@ -1,4 +1,4 @@
-const { createPatient, updatePatient, deletePatient, findPatient, allPatient } = require('../Entities/patientEntity');
+const { createPatient, updatePatient, deletePatient, findPatient, allPatient, findPatientById } = require('../Entities/patientEntity');
 
 const router = require('express').Router()
 
@@ -33,6 +33,7 @@ router.put('/update', async (req, res) => {
 //Delete patient
 router.delete('/delete', async (req, res) => {
     const { id, pId } = req.body;
+    console.log(id,pId);
     try {
         const result = await deletePatient(id, pId)
         res.status(200).json(result)
@@ -53,7 +54,7 @@ router.get('/all', async (req, res) => {
 
 
 //Search patient
-router.get('/search', async (req, res) => {
+router.post('/search', async (req, res) => {
     const search = req.body.search;
     try {
         const result = await findPatient(search)
@@ -63,6 +64,17 @@ router.get('/search', async (req, res) => {
     }
 })
 
+
+//Search byID
+router.post('/searchById', async (req, res) => {
+    const search = req.body.search;
+    try {
+        const result = await findPatientById(search)
+        res.status(200).json(result)
+    } catch (error) {
+        res.status(400).json(error);
+    }
+})
 router.get('/', (req, res) => {
     res.send("user route")
 })

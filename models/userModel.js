@@ -13,8 +13,8 @@ const userSchema = new Schema({
         require: true,
     },
     isAdmin: {
-        type: Number,
-        default: 0,
+        type: Boolean,
+        default: false,
     },
 },{timestamps: true})
 

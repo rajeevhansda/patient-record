@@ -74,4 +74,14 @@ const findPatientDB = async (search) => {
     }
 }
 
-module.exports = { isAdmin, createPatientDB, updatePatientDB, deletePatientDB, findPatientDB, allPatientDB }
+const findPatientByIdDB = async (search) => {
+    try {
+        const result = await Patient.findById(search)
+        console.log(result)
+        return result
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+module.exports = { isAdmin, createPatientDB, updatePatientDB, deletePatientDB, findPatientDB, allPatientDB, findPatientByIdDB }

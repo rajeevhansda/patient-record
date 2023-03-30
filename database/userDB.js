@@ -50,7 +50,7 @@ const updateUserDB = async (search, data) => {
     try {
         const updatedUser = await User.findByIdAndUpdate(search, data);
         const { name, isAdmin, _id } = updatedUser
-        return { id: _id, name, isAdmin };
+        return { id: _id, name: data.name, isAdmin };
     } catch (error) {
         throw new Error(error)
     }

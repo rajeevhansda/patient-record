@@ -1,4 +1,4 @@
-const { isAdmin, createPatientDB, updatePatientDB, deletePatientDB,findPatientDB, allPatientDB } = require("../database/patientDB");
+const { isAdmin, createPatientDB, updatePatientDB, deletePatientDB,findPatientDB, allPatientDB,findPatientByIdDB } = require("../database/patientDB");
 
 const createPatient = async (id, name, disease, medication) => {
 
@@ -60,4 +60,13 @@ const findPatient = async (search) => {
         throw new Error(error)
     }
 }
-module.exports = { createPatient, updatePatient, deletePatient, findPatient,allPatient }
+
+const findPatientById = async (search) => {
+    try {
+        const result = await findPatientByIdDB(search);
+        return result;
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+module.exports = { createPatient, updatePatient, deletePatient, findPatient,allPatient, findPatientById }
